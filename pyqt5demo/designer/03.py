@@ -25,6 +25,10 @@ class MyWindow(QWidget):
         print('do login ing...')
         username = self.user_name.text()
         password = self.password.text()
+        # 单线程 执行期间会卡
+        for i in range(10):
+            print('正在登录服务器...%d' % (i+1))
+            time.sleep(1)
         print(username, password)
         if username == "admin" and password == '123456':
             self.text_browser.setText('欢迎%s' % username)
